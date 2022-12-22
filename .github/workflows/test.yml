@@ -27,10 +27,7 @@ jobs:
       - name: Upload App To Artifact
         uses: actions/upload-artifact@v3
         
-      - name: Get tag name from date
-        id: tag_name
-        run: echo "::set-output name=date::$(date +'%y%m.%d')"
-        
+
         with:
-          name: tag_name
+          name: $(date +'%y%m.%d')
           path: ${{ github.workspace }}/apk/*
