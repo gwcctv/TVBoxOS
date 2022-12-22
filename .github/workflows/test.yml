@@ -26,6 +26,11 @@ jobs:
           done
       - name: Upload App To Artifact
         uses: actions/upload-artifact@v3
+        
+      - name: Get tag name from date
+        id: tag_name
+        run: echo "::set-output name=date::$(date +'%y%m.%d')"
+        
         with:
-          name: com.github.tvbox.osc
+          name: tag_name
           path: ${{ github.workspace }}/apk/*
